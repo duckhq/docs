@@ -21,7 +21,7 @@ namespace Statiqdev
                     Config.FromDocument(doc => doc.Source.Parent.Segments.Last().SequenceEqual("posts".AsMemory())
                         ? new NormalizedPath("blog").Combine(doc.GetDateTime(WebKeys.Published).ToString("yyyy/MM/dd")).Combine(doc.Destination.FileName.ChangeExtension(".html"))
                         : doc.Destination.ChangeExtension(".html")))
-                .AddSetting("EditLink", Config.FromDocument((doc, ctx) => new NormalizedPath("https://github.com/duckhq/docs/edit/master/input").Combine(doc.Source.GetRelativeInputPath())))
+                .AddSetting("EditLink", Config.FromDocument((doc, ctx) => new NormalizedPath("https://github.com/duckhq/docs/edit/develop/input").Combine(doc.Source.GetRelativeInputPath())))
                 .AddShortcode("ChildPages", Config.FromDocument(doc =>
                 {
                     StringBuilder builder = new StringBuilder();
