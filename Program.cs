@@ -14,6 +14,7 @@ namespace Statiqdev
         public static async Task<int> Main(string[] args) =>
             await Bootstrapper.Factory
                 .CreateWeb(args)
+                .AddSetting(Keys.Host, "duckhq.org")
                 .AddSetting(Keys.LinksUseHttps, true)
                 .AddSetting(
                     Keys.DestinationPath,
