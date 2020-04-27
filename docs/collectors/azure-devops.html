@@ -144,10 +144,92 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p><em>To be written</em></p>
+                                        <p>The Azure DevOps collector collect builds from either Azure DevOps or a on-prem Azure DevOps 2019 Server instance.</p>
+<h1 id="configuration">Configuration</h1>
+<pre><code class="language-json">"azure":{
+    "id":"azure_fedora",
+    "enabled":true,
+    "organization":"cake-build",
+    "project":"cake",
+    "definitions":[
+        "6"
+    ],
+    "branches":[
+        "refs/heads/main",
+        "refs/heads/develop"
+    ],
+    "credentials":"anonymous"
+}
+</code></pre>
+<h2 id="required-fields">Required fields</h2>
+<table class="table">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>A unique ID for the collector.</td>
+  </tr>
+  <tr>
+    <td>organization</td>
+    <td>string</td>
+    <td>The organization to fetch builds from.</td>
+  </tr>
+  <tr>
+    <td>project</td>
+    <td>string</td>
+    <td>The project within the organization to fetch builds from.</td>
+  </tr>
+  <tr>
+    <td>definitions</td>
+    <td>string[]</td>
+    <td>The build definition to fetch builds for.</td>
+  </tr>
+  <tr>
+    <td>credentials</td>
+    <td>string</td>
+    <td>The credentials to use.</td>
+  </tr>
+</tbody></table>
+<h2 id="optional-fields">Optional fields</h2>
+<table class="table">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>enabled</td>
+    <td>boolean</td>
+    <td>Whether or not the collector is enabled.</td>
+  </tr>
+</tbody></table>
+<h2 id="credentials">Credentials</h2>
+<p>The credentials fields is where you tell Duck how you want to authenticate
+against Azure DevOps. If your project is public, you can use anonymous access,
+but be aware that this might be throtteled at any point by Azure DevOps.</p>
+<h3 id="anonymous-access">Anonymous access</h3>
+<pre><code class="language-json">"credentials": "anonymous"
+</code></pre>
+<h3 id="personal-access-token">Personal Access Token</h3>
+<pre><code class="language-json">"credentials" {
+    "pat": "MY-SUPER-SECRET-TOKEN"
+}
+</code></pre>
+<div class="alert alert-info" role="alert">
+  <i class="fad fa-info-circle icon-web"></i> Sensitive information such as 
+  personal access tokens, can be put in environment variables.
+</div>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#configuration">Configuration</a></p>
+                                            </div>
                                         <p class="small font-weight-bold"><a href="https:/github.com/duckhq/docs/edit/develop/input/docs/collectors/azure-devops.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
