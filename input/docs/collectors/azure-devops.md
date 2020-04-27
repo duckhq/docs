@@ -38,7 +38,7 @@ To connect to *Azure DevOps* instead, remove the `serverUrl` field.
   <tr>
     <td>id</td>
     <td>string</td>
-    <td>A unique ID for the collector.</td>
+    <td>An unique ID for the collector.</td>
   </tr>
   <tr>
     <td>organization</td>
