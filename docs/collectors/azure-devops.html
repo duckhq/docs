@@ -148,13 +148,14 @@
 <a href="https://azure.microsoft.com/en-us/services/devops/">Azure DevOps</a> or a on-prem
 <a href="https://azure.microsoft.com/en-us/services/devops/server/">Azure DevOps 2019 Server</a> instance.</p>
 <h1 id="configuration">Configuration</h1>
-<p>Below is an example of a configuration for an on-prem <em>Azure DevOps 2019 server</em>.</p>
+<p>Below is an example of a configuration for an on-prem <em>Azure DevOps 2019 server</em>.<br>
+To connect to <em>Azure DevOps</em> instead, remove the <code>serverUrl</code> field.</p>
 <pre><code class="language-json">"azure":{
-    "id": "azure_fedora",
+    "id": "azure_cake",
     "serverUrl": "https://example.com/",
     "organization": "cake-build",
     "project": "cake",
-    "definitions": ["6" ],
+    "definitions": [ "5", "6", "7" ],
     "branches": [
         "refs/heads/main",
         "refs/heads/develop"
@@ -162,7 +163,6 @@
     "credentials": "anonymous"
 }
 </code></pre>
-<p>To connect to <em>Azure DevOps</em> instead, remove the <code>serverUrl</code> field.</p>
 <h2 id="required-fields">Required fields</h2>
 <table class="table">
   <tbody><tr>
@@ -188,7 +188,7 @@
   <tr>
     <td>definitions</td>
     <td>string[]</td>
-    <td>The build definition to fetch builds for.</td>
+    <td>A list of build definition id:s to fetch builds for.</td>
   </tr>
   <tr>
     <td><a href="#credentials">credentials</a></td>
@@ -217,7 +217,7 @@
 <h2 id="credentials">Credentials</h2>
 <p>The credentials fields is where you tell Duck how you want to authenticate
 against Azure DevOps. If your project is public, you can use anonymous access,
-but be aware that this might be throtteled at any point by Azure DevOps.</p>
+but be aware that this might be throttled at any point by Azure DevOps.</p>
 <p><a href="#credentials"></a></p>
 <h4 id="anonymous-access">Anonymous access:</h4>
 <pre><code class="language-json">"credentials": "anonymous"
