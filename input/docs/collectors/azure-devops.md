@@ -9,14 +9,15 @@ The Azure DevOps collector collect builds from either
 # Configuration
 
 Below is an example of a configuration for an on-prem *Azure DevOps 2019 server*.  
+To connect to *Azure DevOps* instead, remove the `serverUrl` field.
 
 ```json
 "azure":{
-    "id": "azure_fedora",
+    "id": "azure_cake",
     "serverUrl": "https://example.com/",
     "organization": "cake-build",
     "project": "cake",
-    "definitions": ["6" ],
+    "definitions": [ "5", "6", "7" ],
     "branches": [
         "refs/heads/main",
         "refs/heads/develop"
@@ -24,8 +25,6 @@ Below is an example of a configuration for an on-prem *Azure DevOps 2019 server*
     "credentials": "anonymous"
 }
 ```
-
-To connect to *Azure DevOps* instead, remove the `serverUrl` field.
 
 ## Required fields
 
@@ -53,7 +52,7 @@ To connect to *Azure DevOps* instead, remove the `serverUrl` field.
   <tr>
     <td>definitions</td>
     <td>string[]</td>
-    <td>The build definition to fetch builds for.</td>
+    <td>A list of build definition id:s to fetch builds for.</td>
   </tr>
   <tr>
     <td><a href="#credentials">credentials</a></td>
@@ -86,7 +85,7 @@ To connect to *Azure DevOps* instead, remove the `serverUrl` field.
 
 The credentials fields is where you tell Duck how you want to authenticate
 against Azure DevOps. If your project is public, you can use anonymous access,
-but be aware that this might be throtteled at any point by Azure DevOps.
+but be aware that this might be throttled at any point by Azure DevOps.
 
 <a href="#credentials"></a>
 
