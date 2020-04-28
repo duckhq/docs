@@ -19,10 +19,14 @@
     <None Include="sass\**">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+    <None Update="input\docs\collectors\azure-devops.cshtml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Statiq.Web" Version="1.0.0-alpha.5" />
+    <PackageReference Include="NJsonSchema" Version="10.1.12" />
   </ItemGroup>
   
   <!--

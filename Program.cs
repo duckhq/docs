@@ -19,9 +19,12 @@ namespace Statiqdev
                 .AddSetting(
                     Keys.DestinationPath,
                     Config.FromDocument(doc => doc.Source.Parent.Segments.Last().SequenceEqual("posts".AsMemory())
-                        ? new NormalizedPath("blog").Combine(doc.GetDateTime(WebKeys.Published).ToString("yyyy/MM/dd")).Combine(doc.Destination.FileName.ChangeExtension(".html"))
+                        ? new NormalizedPath("blog")
+                            .Combine(doc.GetDateTime(WebKeys.Published).ToString("yyyy/MM/dd"))
+                            .Combine(doc.Destination.FileName.ChangeExtension(".html"))
                         : doc.Destination.ChangeExtension(".html")))
                 .AddSetting("EditLink", Config.FromDocument((doc, ctx) => new NormalizedPath("https://github.com/duckhq/docs/edit/develop/input").Combine(doc.Source.GetRelativeInputPath())))
+                .AddSetting(SiteKeys.SchemaUri, "https://raw.githubusercontent.com/duckhq/duck/master/schemas/v0.14.json")
                 .AddShortcode("ChildPages", Config.FromDocument(doc =>
                 {
                     StringBuilder builder = new StringBuilder();
