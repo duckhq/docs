@@ -6,11 +6,13 @@ The Azure DevOps collector collect builds from either
 [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) or a on-prem 
 [Azure DevOps 2019 Server](https://azure.microsoft.com/en-us/services/devops/server/) instance.
 
+# Example
+
 Below is an example of a configuration for an on-prem *Azure DevOps 2019 server*.  
 To connect to *Azure DevOps* instead, remove the `serverUrl` field.
 
 ```json
-"azure":{
+"azure": {
     "id": "azure_cake",
     "serverUrl": "https://example.com/",
     "organization": "cake-build",
