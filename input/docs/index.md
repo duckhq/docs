@@ -1,6 +1,6 @@
 ﻿Title: Documentation
 Order: 0
 ---
-Duck is a build system agnostic build monitor written in Rust (backend server) and Vue (frontend). It also support sending messages to Slack and controlling Philips Hue lights.
+Duck is a build system agnostic build monitor with an embedded dashboard that also support things like sending messages to Slack and controlling build lamps.
 
 <img src="/assets/ui.png" width="100%" />
