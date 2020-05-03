@@ -144,7 +144,29 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p><em>To be written</em></p>
+                                        <p>The GitHub Actions collector collect builds from
+<a href="https://github.com/features/actions">GitHub Actions</a>.</p>
+<h1 id="example">Example</h1>
+<pre><code class="language-json">{
+    "$schema": "https://duckhq.org/schema.json",
+    "collectors": [
+        {
+            "github": {
+                "id": "github_pullrequests",
+                "owner": "duckhq",
+                "repository": "duck",
+                "workflow": "pull_request.yml",
+                "credentials": {
+                    "basic": {
+                        "username": "patriksvensson",
+                        "password": "hunter1!"
+                    }
+                }
+            }
+        }
+    ]
+}
+</code></pre>
 <h1 id="required-fields">Required fields</h1>
 <table class="table">
   <tbody><tr>
@@ -204,12 +226,26 @@
   </tr>
 </tbody></table>
 <h1 id="credentials">Credentials</h1>
-<p><em>To be written</em></p>
+<p>The credentials fields is where you tell Duck how you want to authenticate
+with GitHub.</p>
+<h4 id="basic-authentication">Basic authentication:</h4>
+<pre><code class="language-json">"credentials": {
+    "basic": {
+        "username": "patriksvensson",
+        "password": "hunter1!"
+    }
+}
+</code></pre>
+<div class="alert alert-info" role="alert">
+  <i class="fad fa-info-circle icon-web"></i> Sensitive information such as 
+  personal access tokens, can be put in environment variables.
+</div>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
                                             <div class="border-bottom mb-3">
                                                 <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#example">Example</a></p>
                                                     <p class="small"><a href="#required-fields">Required fields</a></p>
                                                     <p class="small"><a href="#optional-fields">Optional fields</a></p>
                                                     <p class="small"><a href="#credentials">Credentials</a></p>
