@@ -58,7 +58,7 @@ namespace Statiqdev
                 if(value.Type.ToString() == "None") {
                     var foo = args.FirstOrDefault(x => x.Key?.Equals($"{key}Type", StringComparison.OrdinalIgnoreCase) ?? false).Value;
                     if(foo == null) {
-                        throw new InvalidOperationException("Could not find type.");
+                        throw new InvalidOperationException($"Could not find type '{key}'.");
                     }
                     kind.Add(new XElement("span", foo));
                 } else {
