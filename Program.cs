@@ -16,7 +16,7 @@ namespace Statiqdev
                 .CreateWeb(args)
                 .AddSetting(Keys.Host, "duckhq.org")
                 .AddSetting(Keys.LinksUseHttps, true)
-                .AddSetting(SiteKeys.EditLink, Config.FromDocument((doc, ctx) => "https://github.com/duckhq/docs/edit/develop/input" + doc.Source.GetRelativeInputPath()))
+                .AddSetting(SiteKeys.EditLink, Config.FromDocument((doc, ctx) => "https://github.com/duckhq/docs/edit/develop/input/" + doc.Source.GetRelativeInputPath()))
                 .AddSetting(SiteKeys.SchemaUri, "https://raw.githubusercontent.com/duckhq/duck/master/schemas/v0.14.json")
                 .AddShortcode("JsonSchema", typeof(SchemaShortCode))
                 .AddPipelines()
