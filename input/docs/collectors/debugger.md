@@ -1,7 +1,25 @@
 Title: Debugger
 Order: 6
 ---
-*To be written*
+
+The Debugger collector collect builds from a
+[Ducktor server](https://github.com/duckhq/ducktor).
+
+# Example
+
+```json
+{
+    "$schema": "https://duckhq.org/schema.json",
+    "collectors": [
+        {
+            "debugger": {
+                "id": "ducktor_collector",
+                "serverUrl": "http://example.com:5000",
+            }
+        }
+    ]
+}
+```
 
 # Required fields
 
@@ -10,7 +28,3 @@ Order: 6
 # Optional fields
 
 <?# JsonSchema type=DebuggerConfiguration required=false /?>
-
-# Credentials
-
-*To be written*
