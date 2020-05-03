@@ -10,5 +10,6 @@ namespace Statiqdev
         public const string NoSidebar = nameof(NoSidebar);
         public const string Topic = nameof(Topic);
         public static string SchemaUri = nameof(SchemaUri);
+        public static string EditLink = nameof(EditLink);
     }
 }
