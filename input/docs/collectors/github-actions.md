@@ -3,7 +3,7 @@ Order: 2
 ---
 
 The GitHub Actions collector collect builds from 
-[GitHub Actions](https://github.com/features/actions).  
+[GitHub Actions](https://github.com/features/actions).
 
 # Example
 

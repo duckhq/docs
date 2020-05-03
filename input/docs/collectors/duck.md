@@ -1,6 +1,7 @@
 Title: Duck
 Order: 5
 ---
+
 The Duck collector collect builds from a another Duck server.
 You can either fetch all builds, or specify a specific view to
 fetch builds from.
