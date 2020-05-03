@@ -116,10 +116,16 @@
                                                                 <a href="/docs/collectors/github-actions">GitHub Actions</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
+                                                                <a href="/docs/collectors/duck">Duck</a>
+                                                            </div>
+                                                            <div class="sidebar-nav-child">
                                                                 <a href="/docs/collectors/octopus-deploy">Octopus Deploy</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/docs/collectors/appveyor">AppVeyor</a>
+                                                            </div>
+                                                            <div class="sidebar-nav-child">
+                                                                <a href="/docs/collectors/debugger">Debugger</a>
                                                             </div>
                                                     </div>
                                                 <div class="sidebar-nav-item has-children">
@@ -135,19 +141,72 @@
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/docs/observers/mattermost">Mattermost</a>
                                                             </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/observers/duck">Duck</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/observers/debugger">Debugger</a>
-                                                            </div>
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
                                         <p><em>To be written</em></p>
+<h1 id="required-fields">Required fields</h1>
+<table class="table">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>builds</td>
+    <td>
+      <span>Array</span>
+    </td>
+    <td>The TeamCity builds definitions to include</td>
+  </tr>
+  <tr>
+    <td>credentials</td>
+    <td>
+      <span>TeamCityCredentials</span>
+    </td>
+    <td>The TeamCity credentials</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>
+      <span>String</span>
+    </td>
+    <td>The TeamCity collector ID</td>
+  </tr>
+  <tr>
+    <td>serverUrl</td>
+    <td>
+      <span>String</span>
+    </td>
+    <td>The TeamCity server URL</td>
+  </tr>
+</tbody></table>
+<h1 id="optional-fields">Optional fields</h1>
+<table class="table">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>enabled</td>
+    <td>
+      <span>Boolean</span>
+    </td>
+    <td>Determines whether or not this collector is enabled</td>
+  </tr>
+</tbody></table>
+<h1 id="credentials">Credentials</h1>
+<p><em>To be written</em></p>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#required-fields">Required fields</a></p>
+                                                    <p class="small"><a href="#optional-fields">Optional fields</a></p>
+                                                    <p class="small"><a href="#credentials">Credentials</a></p>
+                                            </div>
                                         <p class="small font-weight-bold"><a href="https:/github.com/duckhq/docs/edit/develop/input/docs/collectors/teamcity.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
