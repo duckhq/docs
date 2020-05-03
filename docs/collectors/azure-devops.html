@@ -116,13 +116,13 @@
                                                                 <a href="/docs/collectors/github-actions">GitHub Actions</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
-                                                                <a href="/docs/collectors/duck">Duck</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
                                                                 <a href="/docs/collectors/octopus-deploy">Octopus Deploy</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/docs/collectors/appveyor">AppVeyor</a>
+                                                            </div>
+                                                            <div class="sidebar-nav-child">
+                                                                <a href="/docs/collectors/duck">Duck</a>
                                                             </div>
                                                             <div class="sidebar-nav-child">
                                                                 <a href="/docs/collectors/debugger">Debugger</a>
@@ -147,19 +147,27 @@
                                         <p>The Azure DevOps collector collect builds from either
 <a href="https://azure.microsoft.com/en-us/services/devops/">Azure DevOps</a> or a on-prem
 <a href="https://azure.microsoft.com/en-us/services/devops/server/">Azure DevOps 2019 Server</a> instance.</p>
+<h1 id="example">Example</h1>
 <p>Below is an example of a configuration for an on-prem <em>Azure DevOps 2019 server</em>.<br>
 To connect to <em>Azure DevOps</em> instead, remove the <code>serverUrl</code> field.</p>
-<pre><code class="language-json">"azure":{
-    "id": "azure_cake",
-    "serverUrl": "https://example.com/",
-    "organization": "cake-build",
-    "project": "cake",
-    "definitions": [ "5", "6", "7" ],
-    "branches": [
-        "refs/heads/main",
-        "refs/heads/develop"
-    ],
-    "credentials": "anonymous"
+<pre><code class="language-json">{
+    "$schema": "https://duckhq.org/schema.json",
+    "collectors": [
+        {
+            "azure": {
+                "id": "azure_cake",
+                "serverUrl": "https://example.com/",
+                "organization": "cake-build",
+                "project": "cake",
+                "definitions": [ "5", "6", "7" ],
+                "branches": [
+                    "refs/heads/main",
+                    "refs/heads/develop"
+                ],
+                "credentials": "anonymous"
+            }
+        }
+    ]
 }
 </code></pre>
 <h1 id="required-fields">Required fields</h1>
@@ -238,7 +246,6 @@ To connect to <em>Azure DevOps</em> instead, remove the <code>serverUrl</code> f
 <p>The credentials fields is where you tell Duck how you want to authenticate
 against Azure DevOps. If your project is public, you can use anonymous access,
 but be aware that this might be throttled at any point by Azure DevOps.</p>
-<p><a href="#credentials"></a></p>
 <h4 id="anonymous-access">Anonymous access:</h4>
 <pre><code class="language-json">"credentials": "anonymous"
 </code></pre>
@@ -256,6 +263,7 @@ but be aware that this might be throttled at any point by Azure DevOps.</p>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
                                             <div class="border-bottom mb-3">
                                                 <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#example">Example</a></p>
                                                     <p class="small"><a href="#required-fields">Required fields</a></p>
                                                     <p class="small"><a href="#optional-fields">Optional fields</a></p>
                                                     <p class="small"><a href="#credentials">Credentials</a></p>
