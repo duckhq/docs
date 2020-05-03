@@ -144,10 +144,106 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p><em>To be written</em></p>
+                                        <p>This observer sends notifications to <a href="https://slack.com">Slack</a>.</p>
+<h1 id="example">Example</h1>
+<pre><code class="language-json">{
+    "$schema": "https://duckhq.org/schema.json",
+    "observers": [
+        {
+            "slack": {
+                "id": "slack_observer",
+                "credentials": {
+                    "webhook": {
+                        "url": "https://hooks.slack.com/services/webhook"
+                    }
+                }
+            }
+        }
+    ]
+}
+</code></pre>
+<h1 id="required-fields">Required fields</h1>
+<table class="table">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>credentials</td>
+    <td>
+      <span>SlackCredentials</span>
+    </td>
+    <td>The Slack credentials</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>
+      <span>String</span>
+    </td>
+    <td>The Slack collector ID</td>
+  </tr>
+</tbody></table>
+<h1 id="optional-fields">Optional fields</h1>
+<table class="table">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>channel</td>
+    <td>
+      <span>String</span>
+    </td>
+    <td>The Slack channel to send messages to</td>
+  </tr>
+  <tr>
+    <td>collectors</td>
+    <td>
+      <span>Array</span>
+    </td>
+    <td>The collectors to include events from</td>
+  </tr>
+  <tr>
+    <td>enabled</td>
+    <td>
+      <span>Boolean</span>
+    </td>
+    <td>Determines whether or not this collector is enabled</td>
+  </tr>
+  <tr>
+    <td>filter</td>
+    <td>
+      <span>String</span>
+    </td>
+    <td>An optional filter expression</td>
+  </tr>
+</tbody></table>
+<h1 id="credentials">Credentials</h1>
+<p>The credentials fields is where you tell Duck how you want to authenticate
+with Slack.</p>
+<h4 id="webhook">Webhook:</h4>
+<pre><code class="language-json">"credentials": {
+    "webhook": {
+        "url": "https://hooks.slack.com/services/webhook"
+    }
+}
+</code></pre>
+<div class="alert alert-info" role="alert">
+  <i class="fad fa-info-circle icon-web"></i> Sensitive information such as 
+  personal access tokens, can be put in environment variables.
+</div>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#example">Example</a></p>
+                                                    <p class="small"><a href="#required-fields">Required fields</a></p>
+                                                    <p class="small"><a href="#optional-fields">Optional fields</a></p>
+                                                    <p class="small"><a href="#credentials">Credentials</a></p>
+                                            </div>
                                         <p class="small font-weight-bold"><a href="https://github.com/duckhq/docs/edit/develop/input/docs/observers/slack.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
