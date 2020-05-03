@@ -10,8 +10,6 @@ namespace Statiqdev
     {
         public SchemaPipeline()
         {
-            // DependencyOf.Add(nameof(Content)); 
-
             InputModules = new ModuleList
             {
                 new ExecuteConfig(

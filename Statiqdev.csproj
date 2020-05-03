@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Statiq.Web" Version="1.0.0-alpha.5" />
+    <PackageReference Include="Statiq.Web" Version="1.0.0-alpha.9" />
     <PackageReference Include="NJsonSchema" Version="10.1.12" />
   </ItemGroup>
   
