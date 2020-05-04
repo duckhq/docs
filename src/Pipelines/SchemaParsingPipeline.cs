@@ -3,19 +3,18 @@ using System.Linq;
 using NJsonSchema;
 using Statiq.Common;
 using Statiq.Core;
-using Statiq.Web.Pipelines;
 
-namespace Statiqdev
+namespace Duck.Pipelines
 {
-    public class SchemaPipeline : Pipeline
+    public class SchemaParsingPipeline : Pipeline
     {
-        public SchemaPipeline()
+        public SchemaParsingPipeline()
         {
             InputModules = new ModuleList
             {
                 new ExecuteConfig(
                     Config.FromContext(ctx
-                        => new ReadWeb(ctx.Settings.GetString(SiteKeys.SchemaUri))))
+                        => new ReadWeb(ctx.Settings.GetString(Constants.SchemaUri))))
             };
 
             ProcessModules = new ModuleList
@@ -25,13 +24,12 @@ namespace Statiqdev
                     {
                         var schema = await JsonSchema.FromJsonAsync(await doc.GetContentStringAsync());
 
-                        var definitions = new List<IDocument>();
-                        definitions.Add(schema.ToDocument("Root"));
+                        var definitions = new List<IDocument> { schema.ToDocument(Constants.JsonSchema.Root) };
                         definitions.AddRange(schema.Definitions.Select(definition => definition.Value.ToDocument(definition.Key)));
 
                         return doc.Clone(new MetadataDictionary
                         {
-                            ["Definitions"] = definitions
+                            [Constants.JsonSchema.Definitions] = definitions
                         });
                     }))
             };

@@ -55,9 +55,9 @@
                     </div>
                 </div>
             </nav>
-            @if (IsSectionDefined(SectionNames.Splash))
+            @if (IsSectionDefined(Constants.Sections.Splash))
             {
-                @RenderSection(SectionNames.Splash, false)
+                @RenderSection(Constants.Sections.Splash, false)
             }
             @{ 
                 string section = Document.Destination.Segments.Length > 1 ? Document.Destination.Segments[0].ToString() : null;
@@ -69,14 +69,14 @@
                         <div class="container">
                             <div class="row">
                                 @{ 
-                                    string titleBarClasses = Document.GetBool(SiteKeys.NoSidebar) ? string.Empty : "offset-md-3 offset-lg-2";
+                                    string titleBarClasses = Document.GetBool(Constants.NoSidebar) ? string.Empty : "offset-md-3 offset-lg-2";
                                 }
                                 <div class="@titleBarClasses px-3 px-md-0">
                                     @* <div class="section text-uppercase">@(section)</div> *@
                                     <div class="text-white m-0 title">@(Document.GetString(Keys.Title) ?? Document.GetTitle())</div>
-                                    @if (IsSectionDefined(SectionNames.Subtitle))
+                                    @if (IsSectionDefined(Constants.Sections.Subtitle))
                                     {
-                                        @RenderSection(SectionNames.Subtitle, false)
+                                        @RenderSection(Constants.Sections.Subtitle, false)
                                     }
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                     <div id="undertitle">
                         <div class="container bg-white">                            
                             <div class="row">
-                                @if (Document.GetBool(SiteKeys.NoSidebar))
+                                @if (Document.GetBool(Constants.NoSidebar))
                                 {
                                     <div class="col">
                                     </div>
@@ -104,7 +104,7 @@
                     </div>
                 }
                 <div class="flex-grow-1 d-flex flex-column">
-                    @if (Document.GetBool(SiteKeys.NoContainer))
+                    @if (Document.GetBool(Constants.NoContainer))
                     {
                         <div class="bg-white">
                             @RenderBody()
@@ -114,9 +114,9 @@
                     {
                         <div class="container flex-grow-1 d-flex flex-column bg-white">
                             <div class="row flex-grow-1 align-items-stretch">
-                                @if (Document.GetBool(SiteKeys.NoSidebar))
+                                @if (Document.GetBool(Constants.NoSidebar))
                                 {
-                                    IgnoreSection(SectionNames.Sidebar);
+                                    IgnoreSection(Constants.Sections.Sidebar);
 
                                     <div class="col">
                                         @RenderBody()
@@ -125,9 +125,9 @@
                                 else
                                 {
                                     <div class="sidebar col-md-3 col-lg-2 pt-2 bg-body">
-                                        @if (IsSectionDefined(SectionNames.Sidebar))
+                                        @if (IsSectionDefined(Constants.Sections.Sidebar))
                                         {
-                                            @RenderSection(SectionNames.Sidebar, false)
+                                            @RenderSection(Constants.Sections.Sidebar, false)
                                         }
                                         else
                                         {
@@ -136,16 +136,16 @@
                                                 @Html.DocumentLink(root)
                                             </div>
 
-                                            @foreach (IDocument document in root.GetChildren().Where(x => !x.GetBool("Hidden", false)))
+                                            @foreach (IDocument document in root.GetChildren().OnlyVisible())
                                             {
                                                 <div class="sidebar-nav-item @(Document.IdEquals(document) ? "active" : null) @(document.HasChildren() ? "has-children" : null)">
                                                     @Html.DocumentLink(document)
                                                 </div>
 
-                                                @if (document.HasChildren() && document.GetChildren().Any(x => !x.GetBool("Hidden", false)))
+                                                @if (document.HasVisibleChildren())
                                                 {
                                                     <div class="sidebar-nav-children @(Document.IdEquals(document) || document.GetChildren().Any(x => Document.IdEquals(x)) ? "active" : null)">
-                                                        @foreach (IDocument child in document.GetChildren().Where(x => !x.GetBool("Hidden", false)))
+                                                        @foreach (IDocument child in document.GetChildren().OnlyVisible())
                                                         {
                                                             <div class="sidebar-nav-child @(Document.IdEquals(child) ? "active" : null)">
                                                                 @Html.DocumentLink(child)

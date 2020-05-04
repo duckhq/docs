@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using NJsonSchema;
 using Statiq.Common;
-using Statiq.Core;
-using Statiq.Web.Pipelines;
 using System.Xml.Linq;
+using Duck.Pipelines;
 
-namespace Statiqdev
+namespace Duck.Shortcodes
 {
     public class SchemaShortCode : SyncShortcode
     {
@@ -31,9 +30,9 @@ namespace Statiqdev
 
             // Get the definition.
             var definition = context.Outputs
-                .FromPipeline("SchemaPipeline")
+                .FromPipeline(nameof(SchemaParsingPipeline))
                 .First()
-                .GetChildren("Definitions")
+                .GetChildren(Constants.JsonSchema.Definitions)
                 .OfType<ObjectDocument<JsonSchema>>()
                 .First(x => x.Destination == type)
                 .Object;

@@ -1,13 +1,8 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using NJsonSchema;
 using Statiq.Common;
-using Statiq.Core;
-using Statiq.Web.Pipelines;
 using System.Xml.Linq;
 
-namespace Statiqdev
+namespace Duck.Shortcodes
 {
     public class ChildrenShortcode : SyncShortcode
     {
@@ -15,16 +10,16 @@ namespace Statiqdev
         {
             var ul = new XElement("ul", new XAttribute("class", "list-group"));
 
-            foreach(var child in document.GetChildren().Where(x => !x.GetBool("Hidden", false)))
-            {              
+            foreach (var child in document.GetChildren().OnlyVisible())
+            {
                 var li = new XElement("li", new XAttribute("class", "list-group-item"));
 
                 var link = new XElement("a", new XAttribute("href", child.GetLink()));
                 link.Add(child.GetTitle());
                 li.Add(link);
 
-                var description = child.GetString("Description", null);
-                if(description != null)
+                var description = child.GetDescription();
+                if (description.IsNotEmpty())
                 {
                     li.Add(new XElement("br"));
                     li.Add(new XElement("i", description));
