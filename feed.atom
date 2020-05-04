@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-	<id>https://duckhq.org/</id>
-	<title />
-	<link rel="self" href="https://duckhq.org/" />
-	<rights>2020</rights>
-	<updated>2020-05-04T22:56:14Z</updated>
-</feed>
