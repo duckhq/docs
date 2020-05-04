@@ -1,5 +1,6 @@
 Title: TeamCity
 Order: 0
+Description: This collector collect builds from TeamCity
 ---
 
 The TeamCity collector collect builds from a [TeamCity build server](https://www.jetbrains.com/teamcity).  
