@@ -1,8 +1,9 @@
 Title: Azure DevOps
 Order: 1
+Description: This collector collect builds from Azure DevOps
 ---
 
-The Azure DevOps collector collect builds from either 
+This collector collect builds from either 
 [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) or a on-prem 
 [Azure DevOps 2019 Server](https://azure.microsoft.com/en-us/services/devops/server/) instance.
 

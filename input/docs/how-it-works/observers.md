@@ -1,4 +1,6 @@
 Title: Observers
-Order: 1
+Order: 2
+Hidden: true
 ---
+
 *To be written*

@@ -19,6 +19,7 @@ namespace Statiqdev
                 .AddSetting(SiteKeys.EditLink, Config.FromDocument((doc, ctx) => "https://github.com/duckhq/docs/edit/develop/input/" + doc.Source.GetRelativeInputPath()))
                 .AddSetting(SiteKeys.SchemaUri, "https://raw.githubusercontent.com/duckhq/duck/master/schemas/v0.14.json")
                 .AddShortcode("JsonSchema", typeof(SchemaShortCode))
+                .AddShortcode("Children", typeof(ChildrenShortcode))
                 .AddPipelines()
                 .RunAsync();
     }

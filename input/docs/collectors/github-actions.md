@@ -1,8 +1,9 @@
 Title: GitHub Actions
 Order: 2
+Description: This collector collect builds from GitHub Actions
 ---
 
-The GitHub Actions collector collect builds from 
+This collector collect builds from
 [GitHub Actions](https://github.com/features/actions).
 
 # Example

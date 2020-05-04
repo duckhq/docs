@@ -1,5 +1,6 @@
 Title: Mattermost
 Order: 2
+Description: This observer sends notifications to Mattermost
 ---
 
 This observer sends notifications to [Mattermost](https://mattermost.com).

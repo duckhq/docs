@@ -1,4 +1,12 @@
 Title: Observers
-Order: 4
+Order: 6
 ---
-*To be written*
+
+Observers react to different kinds of events in Duck and
+performs some action. This might be controlling a build 
+lamp when the overall build status change, or sending a 
+message to slack.
+
+Available observers are:
+
+<?# Children /?>

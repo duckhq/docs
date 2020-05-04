@@ -1,5 +1,6 @@
 Title: Slack
 Order: 1
+Description: This observer sends notifications to Slack
 ---
 
 This observer sends notifications to [Slack](https://slack.com).

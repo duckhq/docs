@@ -1,8 +1,9 @@
 Title: Debugger
 Order: 6
+Description: This collector collect builds from a Ducktor server.
 ---
 
-The Debugger collector collect builds from a
+This collector collect builds from a
 [Ducktor server](https://github.com/duckhq/ducktor).
 
 # Example

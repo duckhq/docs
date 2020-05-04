@@ -1,5 +1,6 @@
 Title: Philips Hue
 Order: 0
+Description: This observer controls Philips Hue lights
 ---
 
 This observer controls [Philips Hue](https://www2.meethue.com/) lights.

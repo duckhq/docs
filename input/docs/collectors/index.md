@@ -1,4 +1,11 @@
 Title: Collectors
-Order: 3
+Order: 5
 ---
-*To be written*
+
+Collectors are responsible for collecting builds or 
+deploys from a third party system. This can be some kind 
+of build server or another Duck instance.
+
+Available collectors are:
+
+<?# Children /?>

@@ -136,17 +136,16 @@
                                                 @Html.DocumentLink(root)
                                             </div>
 
-                                            @foreach (IDocument document in root.GetChildren())
+                                            @foreach (IDocument document in root.GetChildren().Where(x => !x.GetBool("Hidden", false)))
                                             {
-
                                                 <div class="sidebar-nav-item @(Document.IdEquals(document) ? "active" : null) @(document.HasChildren() ? "has-children" : null)">
                                                     @Html.DocumentLink(document)
                                                 </div>
 
-                                                @if (document.HasChildren())
+                                                @if (document.HasChildren() && document.GetChildren().Any(x => !x.GetBool("Hidden", false)))
                                                 {
                                                     <div class="sidebar-nav-children @(Document.IdEquals(document) || document.GetChildren().Any(x => Document.IdEquals(x)) ? "active" : null)">
-                                                        @foreach (IDocument child in document.GetChildren())
+                                                        @foreach (IDocument child in document.GetChildren().Where(x => !x.GetBool("Hidden", false)))
                                                         {
                                                             <div class="sidebar-nav-child @(Document.IdEquals(child) ? "active" : null)">
                                                                 @Html.DocumentLink(child)

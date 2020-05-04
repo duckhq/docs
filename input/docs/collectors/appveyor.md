@@ -1,8 +1,9 @@
 Title: AppVeyor
 Order: 4
+Description: This collector collect builds from AppVeyor
 ---
 
-The AppVeyor collector collect builds from [AppVeyor](https://www.appveyor.com/).  
+This collector collect builds from [AppVeyor](https://www.appveyor.com/).  
 
 # Example
 

@@ -1,5 +1,5 @@
 Title: Download
-Order: 0
+Order: 1
 ---
 
 Duck is available for the following platforms:

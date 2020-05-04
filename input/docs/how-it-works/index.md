@@ -1,5 +1,5 @@
 Title: How it works
-Order: 1
+Order: 2
 ---
 
 # Overview

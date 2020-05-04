@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NJsonSchema;
 using Statiq.Common;
 using Statiq.Core;
@@ -24,10 +25,13 @@ namespace Statiqdev
                     {
                         var schema = await JsonSchema.FromJsonAsync(await doc.GetContentStringAsync());
 
+                        var definitions = new List<IDocument>();
+                        definitions.Add(schema.ToDocument("Root"));
+                        definitions.AddRange(schema.Definitions.Select(definition => definition.Value.ToDocument(definition.Key)));
+
                         return doc.Clone(new MetadataDictionary
                         {
-                            ["Definitions"] = schema.Definitions.Select(definition
-                                => definition.Value.ToDocument(definition.Key))
+                            ["Definitions"] = definitions
                         });
                     }))
             };

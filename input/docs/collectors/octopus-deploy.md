@@ -1,8 +1,9 @@
 Title: Octopus Deploy
 Order: 3
+Description: This collector collect deployments from Octopus Deploy
 ---
 
-The Octopus Deploy collector collect deployments from an [Octopus Deploy server](https://octopus.com).  
+This collector collect deployments from an [Octopus Deploy server](https://octopus.com).  
 
 # Example
 
