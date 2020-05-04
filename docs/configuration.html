@@ -17,7 +17,7 @@
         <script src="/mirror/cdn.jsdelivr.net/npm/prismjs@1.19.0/components/prism-core.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror=""></script>
 
-        <title>Duck - Collectors</title>
+        <title>Duck - Configuration</title>
     </head>
     <body class="d-flex flex-column">
         <div class="flex-grow-1 d-flex flex-column">
@@ -55,7 +55,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="offset-md-3 offset-lg-2 px-3 px-md-0">
-                                    <div class="text-white m-0 title">Collectors</div>
+                                    <div class="text-white m-0 title">Configuration</div>
                                 </div>
                             </div>
                         </div>
@@ -82,26 +82,12 @@
                                                 <div class="sidebar-nav-item">
                                                     <a href="/docs/download">Download</a>
                                                 </div>
-                                                <div class="sidebar-nav-item">
+                                                <div class="sidebar-nav-item has-children">
                                                     <a href="/docs/how-it-works">How it works</a>
                                                 </div>
-                                                <div class="sidebar-nav-item has-children">
+                                                <div class="sidebar-nav-item active">
                                                     <a href="/docs/configuration">Configuration</a>
                                                 </div>
-                                                    <div class="sidebar-nav-children active">
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/overview">Overview</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child active">
-                                                                <a href="/docs/configuration/collectors">Collectors</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/observers">Observers</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/views">Views</a>
-                                                            </div>
-                                                    </div>
                                                 <div class="sidebar-nav-item has-children">
                                                     <a href="/docs/collectors">Collectors</a>
                                                 </div>
@@ -144,11 +130,130 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p><em>To be written</em></p>
+                                        <p>Duck is configured using a JSON configuration file normally called <code>duck.json</code>
+residing in the same directory that the Duck executable can be found in.</p>
+<p>You can also tell Duck explicitly what configuration file to use, by providing the
+<code>--config</code> option when starting Duck.</p>
+<pre><code class="language-shell">&gt; ./duck --config ~/duck.json
+</code></pre>
+<h1 id="example">Example</h1>
+<p>In the example below we configure Duck to fetch new builds from TeamCity and
+GitHub Actions every 30 seconds. We also define a view that can be toggled
+in the UI and only will show builds from the <code>teamcity_internal</code> collector.</p>
+<pre><code class="language-json">{
+    "$schema": "https://duckhq.org/schema.json",
+    "title": "ACME Dashboard",
+    "interval": 30,
+    "views": [
+        {
+            "id": "office_tv",
+            "name": "Office TV", 
+            "collectors": [ 
+                "teamcity_internal"
+            ]
+        }
+    ],
+    "collectors": [
+        {
+            "teamcity": {
+                "id": "teamcity_internal",
+                "serverUrl": "https://${TEAMCITY_HOST}:${TEAMCITY_PORT}/",
+                "credentials": "guest",
+                "builds": [
+                    "My_Project_Definition",
+                    "My_Other_Build_Definition"
+                ]
+            }
+        },
+        {
+            "github": {
+                "id": "github_pullrequests",
+                "owner": "duckhq",
+                "repository": "duck",
+                "workflow": "pull_request.yml",
+                "credentials": {
+                    "basic": {
+                        "username": "patriksvensson",
+                        "password": "hunter1!"
+                    }
+                }
+            }
+        }
+    ],
+    "observers": [
+        {
+            "hue": {
+                "id": "hue_all_builds_dimmed",
+                "hubUrl": "http://192.168.1.99",
+                "username": "THE-HUE-USERNAME",
+                "brightness": 50,
+                "lights": [ "2", "3" ]
+            }
+        }
+    ]
+}
+</code></pre>
+<h1 id="required-fields">Required fields</h1>
+<table class="table">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>collectors</td>
+    <td>
+      <span>Array</span>
+    </td>
+    <td>Collectors</td>
+  </tr>
+</tbody></table>
+<h1 id="optional-fields">Optional fields</h1>
+<table class="table">
+  <tbody><tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>interval</td>
+    <td>
+      <span>Integer</span>
+    </td>
+    <td>Update interval<br><i>The update interval in seconds</i></td>
+  </tr>
+  <tr>
+    <td>observers</td>
+    <td>
+      <span>Array</span>
+    </td>
+    <td>Observers</td>
+  </tr>
+  <tr>
+    <td>title</td>
+    <td>
+      <span>String</span>
+    </td>
+    <td>Duck frontend title<br><i>The title that is displayed in the UI</i></td>
+  </tr>
+  <tr>
+    <td>views</td>
+    <td>
+      <span>Array</span>
+    </td>
+    <td>Views</td>
+  </tr>
+</tbody></table>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
-                                        <p class="small font-weight-bold"><a href="https://github.com/duckhq/docs/edit/develop/input/docs/configuration/collectors.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
+                                            <div class="border-bottom mb-3">
+                                                <p class="small font-weight-bold">On This Page</p>
+                                                    <p class="small"><a href="#example">Example</a></p>
+                                                    <p class="small"><a href="#required-fields">Required fields</a></p>
+                                                    <p class="small"><a href="#optional-fields">Optional fields</a></p>
+                                            </div>
+                                        <p class="small font-weight-bold"><a href="https://github.com/duckhq/docs/edit/develop/input/docs/configuration.md"><i class="fad fa-pencil"></i> Edit This Page</a></p>
                                 </div>
                             </div>
                         </div>

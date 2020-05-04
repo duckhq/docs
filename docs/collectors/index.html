@@ -82,26 +82,12 @@
                                                 <div class="sidebar-nav-item">
                                                     <a href="/docs/download">Download</a>
                                                 </div>
-                                                <div class="sidebar-nav-item">
+                                                <div class="sidebar-nav-item has-children">
                                                     <a href="/docs/how-it-works">How it works</a>
                                                 </div>
-                                                <div class="sidebar-nav-item has-children">
+                                                <div class="sidebar-nav-item">
                                                     <a href="/docs/configuration">Configuration</a>
                                                 </div>
-                                                    <div class="sidebar-nav-children">
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/overview">Overview</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/collectors">Collectors</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/observers">Observers</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/views">Views</a>
-                                                            </div>
-                                                    </div>
                                                 <div class="sidebar-nav-item active has-children">
                                                     <a href="/docs/collectors">Collectors</a>
                                                 </div>
@@ -144,7 +130,45 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p><em>To be written</em></p>
+                                        <p>Collectors are responsible for collecting builds or
+deploys from a third party system. This can be some kind
+of build server or another Duck instance.</p>
+<p>Available collectors are:</p>
+<ul class="list-group">
+  <li class="list-group-item">
+    <a href="/docs/collectors/teamcity">TeamCity</a>
+  </li>
+  <li class="list-group-item">
+    <a href="/docs/collectors/azure-devops">Azure DevOps</a>
+    <br>
+    <i>This collector collect builds from Azure DevOps</i>
+  </li>
+  <li class="list-group-item">
+    <a href="/docs/collectors/github-actions">GitHub Actions</a>
+    <br>
+    <i>This collector collect builds from GitHub Actions</i>
+  </li>
+  <li class="list-group-item">
+    <a href="/docs/collectors/octopus-deploy">Octopus Deploy</a>
+    <br>
+    <i>This collector collect deployments from Octopus Deploy</i>
+  </li>
+  <li class="list-group-item">
+    <a href="/docs/collectors/appveyor">AppVeyor</a>
+    <br>
+    <i>This collector collect builds from AppVeyor</i>
+  </li>
+  <li class="list-group-item">
+    <a href="/docs/collectors/duck">Duck</a>
+    <br>
+    <i>This collector collect builds from a another Duck server.</i>
+  </li>
+  <li class="list-group-item">
+    <a href="/docs/collectors/debugger">Debugger</a>
+    <br>
+    <i>This collector collect builds from a Ducktor server.</i>
+  </li>
+</ul>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">

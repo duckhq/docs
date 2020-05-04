@@ -82,26 +82,12 @@
                                                 <div class="sidebar-nav-item">
                                                     <a href="/docs/download">Download</a>
                                                 </div>
-                                                <div class="sidebar-nav-item">
+                                                <div class="sidebar-nav-item has-children">
                                                     <a href="/docs/how-it-works">How it works</a>
                                                 </div>
-                                                <div class="sidebar-nav-item has-children">
+                                                <div class="sidebar-nav-item">
                                                     <a href="/docs/configuration">Configuration</a>
                                                 </div>
-                                                    <div class="sidebar-nav-children">
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/overview">Overview</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/collectors">Collectors</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/observers">Observers</a>
-                                                            </div>
-                                                            <div class="sidebar-nav-child">
-                                                                <a href="/docs/configuration/views">Views</a>
-                                                            </div>
-                                                    </div>
                                                 <div class="sidebar-nav-item has-children">
                                                     <a href="/docs/collectors">Collectors</a>
                                                 </div>
@@ -144,7 +130,28 @@
                                                     </div>
                                     </div>
                                     <div class="col-md-9 col-lg-8 pt-4 pt-md-0 pb-4 px-4">
-                                        <p><em>To be written</em></p>
+                                        <p>Observers react to different kinds of events in Duck and
+performs some action. This might be controlling a build
+lamp when the overall build status change, or sending a
+message to slack.</p>
+<p>Available observers are:</p>
+<ul class="list-group">
+  <li class="list-group-item">
+    <a href="/docs/observers/philips-hue">Philips Hue</a>
+    <br>
+    <i>This observer controls Philips Hue lights</i>
+  </li>
+  <li class="list-group-item">
+    <a href="/docs/observers/slack">Slack</a>
+    <br>
+    <i>This observer sends notifications to Slack</i>
+  </li>
+  <li class="list-group-item">
+    <a href="/docs/observers/mattermost">Mattermost</a>
+    <br>
+    <i>This observer sends notifications to Mattermost</i>
+  </li>
+</ul>
 
                                     </div>
                                 <div class="col-lg-2 d-none d-lg-block bg-body pl-3 pt-3">
