@@ -12,7 +12,7 @@ namespace Duck.Pipelines
             {
                 new ExecuteConfig(Config.FromContext(ctx => 
                 {
-                    return new ReadWeb(ctx.Settings.GetString(Constants.SchemaUri));
+                    return new ReadWeb(ctx.GetSchemaUrl());
                 }))
             };
             

@@ -12,10 +12,10 @@ namespace Duck.Pipelines
             OutputModules = new ModuleList
             {
                 new DeployGitHubPages(
-                    Config.FromSetting<string>(Constants.Deployment.Owner),
-                    Config.FromSetting<string>(Constants.Deployment.Repository),
+                    Config.FromSetting<string>(Constants.Site.Owner),
+                    Config.FromSetting<string>(Constants.Site.Repository),
                     Config.FromSetting<string>(Constants.Deployment.GitHubToken))
-                        .ToBranch(Config.FromSetting<string>(Constants.Deployment.Branch))
+                        .ToBranch(Config.FromSetting<string>(Constants.Deployment.TargetBranch))
             };
         }
     }

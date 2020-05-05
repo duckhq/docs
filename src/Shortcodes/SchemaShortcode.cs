@@ -32,7 +32,7 @@ namespace Duck.Shortcodes
             var definition = context.Outputs
                 .FromPipeline(nameof(SchemaParsingPipeline))
                 .First()
-                .GetChildren(Constants.JsonSchema.Definitions)
+                .GetChildren(Constants.Duck.JsonSchema.Definitions)
                 .OfType<ObjectDocument<JsonSchema>>()
                 .First(x => x.Destination == type)
                 .Object;

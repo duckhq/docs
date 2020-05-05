@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NJsonSchema;
 using Statiq.Common;
@@ -13,8 +14,9 @@ namespace Duck.Pipelines
             InputModules = new ModuleList
             {
                 new ExecuteConfig(
-                    Config.FromContext(ctx
-                        => new ReadWeb(ctx.Settings.GetString(Constants.SchemaUri))))
+                    Config.FromContext(ctx => {
+                        return new ReadWeb(ctx.GetSchemaUrl());
+                    }))
             };
 
             ProcessModules = new ModuleList
@@ -24,12 +26,12 @@ namespace Duck.Pipelines
                     {
                         var schema = await JsonSchema.FromJsonAsync(await doc.GetContentStringAsync());
 
-                        var definitions = new List<IDocument> { schema.ToDocument(Constants.JsonSchema.Root) };
+                        var definitions = new List<IDocument> { schema.ToDocument(Constants.Duck.JsonSchema.Root) };
                         definitions.AddRange(schema.Definitions.Select(definition => definition.Value.ToDocument(definition.Key)));
 
                         return doc.Clone(new MetadataDictionary
                         {
-                            [Constants.JsonSchema.Definitions] = definitions
+                            [Constants.Duck.JsonSchema.Definitions] = definitions
                         });
                     }))
             };
