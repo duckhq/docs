@@ -2,7 +2,7 @@
 Order: 4
 ---
 
-Duck is configured using a JSON configuration file normally called `duck.json`
+Duck is configured using a JSON configuration file normally called `config.json`
 residing in the same directory that the Duck executable can be found in.
 
 You can also tell Duck explicitly what configuration file to use, by providing the
